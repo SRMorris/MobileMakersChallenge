@@ -10,7 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var tableViewCellArray = [Message]()
+    
+    
     override func viewDidLoad() {
+        
+        
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -20,6 +26,15 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    /* Put this in the send message button action
+    {
+        after send button is tapped
+        create a new table view cell
+        append it to the tableViewCellArray
+        if array contains more than x amount of cells, delete oldest one
+    }
+    */
 
 }
 
