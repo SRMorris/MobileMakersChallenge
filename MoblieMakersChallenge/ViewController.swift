@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import MultipeerConnectivity
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MCBrowserViewControlerDelegate, MCSessionDelegate {
     
     // Making variables
+    var browser : MCBrowserViewController!
+    var assistant : MCAdvertiserAssistant!
+    var session : MCSession!
+    var peerID: MCPeerID!
     var messageArray = [Message]()
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -20,19 +25,48 @@ class ViewController: UIViewController {
         
         
         super.viewDidLoad()
+        self.peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
+        self.session = MCSession(peer: peerID)
+        self.session.delegate = self
+        
+        // create the browser viewcontroller with a unique service name
+        self.browser = MCBrowserViewController(serviceType:serviceType,
+            session:self.session)
+        
+        self.browser.delegate = self;
+        
+        self.assistant = MCAdvertiserAssistant(serviceType:serviceType,
+            discoveryInfo:nil, session:self.session)
+        
+        // tell the assistant to start advertising our fabulous chat
+        self.assistant.start()
+        
         loadSampleMessages()
     }
     
     // Send message action
     @IBAction func sendButtonTapped(sender: UIButton)
     {
-        let newSentMessage: Message = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Test", messageText: messageTextField.text!)
+        // Bundle up the text in the message field, and send it off to all
+        // connected peers
         
-        if(newSentMessage.textLabel != "")
-        {
-            messageArray.append(newSentMessage)
-        }
+        var msg = messageTextField.text
+        let data = NSData(bytes: &msg, length: sizeof(Int))
         
+        
+        try! self.session.sendData(data, toPeers: self.session.connectedPeers, withMode: MCSessionSendDataMode.Unreliable)
+        
+        self.updateChat(self.messageField.text!, fromPeer: self.peerID)
+        
+        self.messageField.text = String(choice)
+        //what does this do exactly
+//        let newSentMessage: Message = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Test", messageText: messageTextField.text!)
+//        
+//        if(newSentMessage.textLabel != "")
+//        {
+//            messageArray.append(newSentMessage)
+//        }
+//        
     }
     
     // Tells the table view how many cells to make
@@ -60,5 +94,83 @@ class ViewController: UIViewController {
         messageArray.append(sample2)
         messageArray.append(sample3)
     }
+    
+    //various mulitpeer funcitons 
+    @IBAction func showBrowser(sender: UIButton) {
+        // Show the browser view controller
+        self.presentViewController(self.browser, animated: true, completion: nil)
+    }
+    
+    func browserViewControllerDidFinish(
+        browserViewController: MCBrowserViewController)  {
+            // Called when the browser view controller is dismissed (ie the Done
+            // button was tapped)
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func browserViewControllerWasCancelled(
+        browserViewController: MCBrowserViewController)  {
+            // Called when the browser view controller is cancelled
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
+    func updateChat(text : String, fromPeer peerID: MCPeerID) {
+        // Appends some text to the chat view
+        
+        // If this peer ID is the local device's peer ID, then show the name
+        // as "Me"
+        
+        switch peerID {
+        case self.peerID:
+            name = "Me"
+        default:
+            name = peerID.displayName
+        }
+        
+    }
+    
+    func session(session: MCSession, didReceiveData data: NSData,
+        fromPeer peerID: MCPeerID)  {
+            // Called when a peer sends an NSData to us
+            
+            // This needs to run on the main queue
+            dispatch_async(dispatch_get_main_queue()) {
+                
+                let msg = NSString(data: data, encoding: NSUTF8StringEncoding)
+                
+                self.updateChat(String(msg), fromPeer: peerID)
+            }
+    }
+    
+    // The following methods do nothing, but the MCSessionDelegate protocol
+    // requires that we implement them.
+    func session(session: MCSession,
+        didStartReceivingResourceWithName resourceName: String,
+        fromPeer peerID: MCPeerID, withProgress progress: NSProgress)  {
+            
+            updateChat(String(msg), fromPeer: self.peerID)
+    }
+    
+    func session(session: MCSession,
+        didFinishReceivingResourceWithName resourceName: String,
+        fromPeer peerID: MCPeerID,
+        atURL localURL: NSURL, withError error: NSError?)  {
+            // Called when a file has finished transferring from another peer
+    }
+    
+    func session(session: MCSession, didReceiveStream stream: NSInputStream,
+        withName streamName: String, fromPeer peerID: MCPeerID)  {
+            // Called when a peer establishes a stream with us
+    }
+    
+    func session(session: MCSession, peer peerID: MCPeerID,
+        didChangeState state: MCSessionState)  {
+            // Called when a connected peer changes state (for example, goes offline)
+            
+    }
+
 }
 
