@@ -9,13 +9,16 @@
 import UIKit
 import MultipeerConnectivity
 
-class ViewController: UIViewController, MCBrowserViewControlerDelegate, MCSessionDelegate {
+class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessionDelegate {
     
     // Making variables
     var browser : MCBrowserViewController!
     var assistant : MCAdvertiserAssistant!
     var session : MCSession!
     var peerID: MCPeerID!
+    var name: String = "Nugget McGee"
+    var choice: String = "I'm a nuggest"
+    let serviceType = "LCOC-Chat"
     var messageArray = [Message]()
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
@@ -56,9 +59,9 @@ class ViewController: UIViewController, MCBrowserViewControlerDelegate, MCSessio
         
         try! self.session.sendData(data, toPeers: self.session.connectedPeers, withMode: MCSessionSendDataMode.Unreliable)
         
-        self.updateChat(self.messageField.text!, fromPeer: self.peerID)
+        self.updateChat(self.messageTextField.text!, fromPeer: self.peerID)
         
-        self.messageField.text = String(choice)
+        self.messageTextField.text = String(choice)
         //what does this do exactly
 //        let newSentMessage: Message = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Test", messageText: messageTextField.text!)
 //        
