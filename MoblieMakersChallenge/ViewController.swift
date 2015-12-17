@@ -9,32 +9,56 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    var tableViewCellArray = [Message]()
+    
+    // Making variables
+    var messageArray = [Message]()
+    @IBOutlet weak var messageTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
     
     
     override func viewDidLoad() {
         
         
-        
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        loadSampleMessages()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     
-    /* Put this in the send message button action
+    // Send message action
+    @IBAction func sendButtonTapped(sender: UIButton)
     {
-        after send button is tapped
-        create a new table view cell
-        append it to the tableViewCellArray
-        if array contains more than x amount of cells, delete oldest one
+        let newSentMessage: Message = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Test", messageText: messageTextField.text!)
+        
+        if(newSentMessage.textLabel != "")
+        {
+            messageArray.append(newSentMessage)
+        }
+        
     }
-    */
-
+    
+    // Tells the table view how many cells to make
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
+        return messageArray.count
+        
+    }
+    
+    // Displays the cell with the message on it
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
+        let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath)
+        cell.textLabel?.text = messageArray[indexPath.row].messageText
+        return cell
+    }
+    
+    // Loads sample messages for testing purposes
+    func loadSampleMessages()
+    {
+        let sample1 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "test", messageText: "lol")
+        let sample2 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Sample Text 2", messageText: "I too am a sample text")
+        let sample3 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Sample Text 3", messageText: "Way to be original, loser")
+        messageArray.append(sample1)
+        messageArray.append(sample2)
+        messageArray.append(sample3)
+    }
 }
 

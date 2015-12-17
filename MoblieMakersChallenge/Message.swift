@@ -18,7 +18,7 @@ class Message: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    init(style: UITableViewCellStyle, reuseIdentifier: String?, messageText: String) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         self.textLabel?.text = messageText
