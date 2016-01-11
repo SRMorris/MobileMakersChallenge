@@ -45,6 +45,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         self.assistant.start()
         
         loadSampleMessages()
+        
     }
     
     // Send message action
@@ -62,14 +63,6 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         self.updateChat(self.messageTextField.text!, fromPeer: self.peerID)
         
         self.messageTextField.text = String(choice)
-        //what does this do exactly
-//        let newSentMessage: Message = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Test", messageText: messageTextField.text!)
-//        
-//        if(newSentMessage.textLabel != "")
-//        {
-//            messageArray.append(newSentMessage)
-//        }
-//        
     }
     
     // Tells the table view how many cells to make
@@ -85,6 +78,12 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath)
         cell.textLabel?.text = messageArray[indexPath.row].messageText
         return cell
+    }
+    
+    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
+        let message = messageArray[sourceIndexPath.row]
+        messageArray.removeAtIndex(sourceIndexPath.row)
+        messageArray.insert(message, atIndex: destinationIndexPath.row)
     }
     
     // Loads sample messages for testing purposes
