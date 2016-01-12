@@ -22,6 +22,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     var messageArray = [Message]()
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var textHere: UILabel!
     
     
     override func viewDidLoad() {
@@ -150,6 +151,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
             dispatch_async(dispatch_get_main_queue()) {
                 
                 let msg = NSString(data: data, encoding: NSUTF8StringEncoding)
+                self.textHere.text = String(data)
                 
                 self.updateChat(String(msg), fromPeer: peerID)
             }

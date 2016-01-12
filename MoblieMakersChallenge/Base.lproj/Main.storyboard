@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z2c-EA-rhx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z2c-EA-rhx">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,12 +16,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="23k-uj-Ieu">
-                                <rect key="frame" x="0.0" y="28" width="414" height="317"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bcm-eE-DcJ">
                                 <rect key="frame" x="189" y="353" width="36" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Send"/>
                                 <connections>
                                     <action selector="sendButtonTapped:" destination="Z2c-EA-rhx" eventType="touchUpInside" id="Bcl-oG-43C"/>
@@ -30,6 +26,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9J-EA-AZl">
                                 <rect key="frame" x="182" y="391" width="51" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Browse"/>
                                 <connections>
                                     <action selector="showBrowser:" destination="Z2c-EA-rhx" eventType="touchUpInside" id="cPz-lg-gSe"/>
@@ -37,6 +34,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Iz-8n-sNq">
                                 <rect key="frame" x="267" y="353" width="108" height="30"/>
+                                <animations/>
                                 <state key="normal" title="Close Keyboard"/>
                                 <connections>
                                     <action selector="closeKeyboardButtonTapped:" destination="Z2c-EA-rhx" eventType="touchUpInside" id="BUA-Ez-Yxe"/>
@@ -44,6 +42,7 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="LNG-SendButtonInert" translatesAutoresizingMaskIntoConstraints="NO" id="GzU-4p-eQc">
                                 <rect key="frame" x="0.0" y="609" width="414" height="59"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="8bM-87-5RZ"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="59" id="Yxc-er-stD"/>
@@ -53,6 +52,7 @@
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Click here" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n2H-yS-PxP">
                                 <rect key="frame" x="9" y="618" width="396" height="30"/>
+                                <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="QuX-qT-vh4"/>
@@ -63,14 +63,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="stuff go " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vw3-FV-HJs">
+                                <rect key="frame" x="175" y="222" width="64" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="messageTextField" destination="n2H-yS-PxP" id="WbA-0F-ffN"/>
-                        <outlet property="tableView" destination="23k-uj-Ieu" id="cue-dN-dGM"/>
+                        <outlet property="textHere" destination="vw3-FV-HJs" id="IAw-7z-7uW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CTz-Yq-nZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
