@@ -44,10 +44,16 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         // tell the assistant to start advertising our fabulous chat
         self.assistant.start()
         
+        
+        
         loadSampleMessages()
         
        
         
+    }
+    @IBAction func closeKeyboardButtonTapped(sender: UIButton)
+    {
+        messageTextField.resignFirstResponder()
     }
     
     // Send message action
@@ -73,9 +79,6 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         return messageArray.count
         
     }
-    
-    
-    @IBOutlet weak var testlabel: UILabel!
     
     // Displays the cell with the message on it
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
