@@ -46,7 +46,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         
         loadSampleMessages()
         
-        testlabel.text = messageArray[0].messageText
+       
         
     }
     
