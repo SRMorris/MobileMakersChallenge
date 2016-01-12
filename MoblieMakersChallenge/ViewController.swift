@@ -64,12 +64,13 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         // connected peers
         
         
-        var msg = self.messageTextField.text!.dataUsingEncoding(NSUTF8StringEncoding,
+        let msg = self.messageTextField.text!.dataUsingEncoding(NSUTF8StringEncoding,
             allowLossyConversion: false)
         
-        let data = NSData(bytes: &msg, length: sizeof(Int))
+//        let data = NSData(bytes: &msg, length: sizeof(Int))
         
-        try! self.session.sendData(data, toPeers: self.session.connectedPeers, withMode: MCSessionSendDataMode.Unreliable)
+        
+        try! self.session.sendData(msg!, toPeers: self.session.connectedPeers, withMode: MCSessionSendDataMode.Unreliable)
         
         self.updateChat(self.messageTextField.text!, fromPeer: self.peerID)
         
