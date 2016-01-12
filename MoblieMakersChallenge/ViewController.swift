@@ -63,9 +63,12 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         // Bundle up the text in the message field, and send it off to all
         // connected peers
         
-        var msg = messageTextField.text
-        let data = NSData(bytes: &msg, length: sizeof(Int))
         
+        var msg = self.messageTextField.text!.dataUsingEncoding(NSUTF8StringEncoding,
+            allowLossyConversion: false)
+        
+        let data = NSData(bytes: &msg, length: sizeof(Int))
+
         
         try! self.session.sendData(data, toPeers: self.session.connectedPeers, withMode: MCSessionSendDataMode.Unreliable)
         
