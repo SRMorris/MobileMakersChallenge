@@ -151,7 +151,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
             dispatch_async(dispatch_get_main_queue()) {
                 
                 let msg = NSString(data: data, encoding: NSUTF8StringEncoding)
-                self.textHere.text = String(data)
+                self.textHere.text = String(msg)
                 
                 self.updateChat(String(msg), fromPeer: peerID)
             }
