@@ -68,13 +68,15 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
             allowLossyConversion: false)
         
         let data = NSData(bytes: &msg, length: sizeof(Int))
-
         
         try! self.session.sendData(data, toPeers: self.session.connectedPeers, withMode: MCSessionSendDataMode.Unreliable)
         
         self.updateChat(self.messageTextField.text!, fromPeer: self.peerID)
         
         self.messageTextField.text = String(choice)
+        
+        
+        print(String(msg))
     }
     
     // Tells the table view how many cells to make
@@ -154,6 +156,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
             dispatch_async(dispatch_get_main_queue()) {
                 
                 let msg = NSString(data: data, encoding: NSUTF8StringEncoding)
+                print(String(msg))
                 self.textHere.text = String(msg)
                 
                 self.updateChat(String(msg), fromPeer: peerID)
