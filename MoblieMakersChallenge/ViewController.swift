@@ -63,9 +63,12 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         // Bundle up the text in the message field, and send it off to all
         // connected peers
         
+         print(String(self.messageTextField.text))
         
         var msg = self.messageTextField.text!.dataUsingEncoding(NSUTF8StringEncoding,
             allowLossyConversion: false)
+        
+       
         
         let data = NSData(bytes: &msg, length: sizeof(Int))
         
@@ -76,7 +79,6 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         self.messageTextField.text = String(choice)
         
         
-        print(String(msg))
     }
     
     // Tells the table view how many cells to make
