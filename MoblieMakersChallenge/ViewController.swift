@@ -9,7 +9,7 @@
 import UIKit
 import MultipeerConnectivity
 
-class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessionDelegate {
+class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessionDelegate, UITableViewDelegate, UITableViewDataSource {
     
     // Making variables
     var browser : MCBrowserViewController!
@@ -29,6 +29,8 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         
         
         super.viewDidLoad()
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
         self.peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
         self.session = MCSession(peer: peerID)
         self.session.delegate = self
