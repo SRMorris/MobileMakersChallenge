@@ -60,21 +60,31 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     }
     
     // Send message action
-    @IBAction func sendButtonTapped(sender: UIButton)
+    @IBAction func sendButtonTapped(sender: UIButton) throws
     {
         // Bundle up the text in the message field, and send it off to all
         // connected peers
         
          print(String(self.messageTextField.text))
         
-        var msg = self.messageTextField.text!.dataUsingEncoding(NSUTF8StringEncoding,
+        let msg = self.messageTextField.text!.dataUsingEncoding(NSUTF8StringEncoding,
             allowLossyConversion: false)
         
+<<<<<<< HEAD
        
         
         let data = NSData(bytes: &msg, length: sizeof(Int))
+=======
+//        let data = NSData(bytes: &msg, length: sizeof(Int))
+>>>>>>> acee5cf12df158a851a24f3db23d7362cb6b10ce
         
-        try! self.session.sendData(data, toPeers: self.session.connectedPeers, withMode: MCSessionSendDataMode.Unreliable)
+        do {
+            try self.session.sendData(msg!, toPeers: self.session.connectedPeers, withMode: MCSessionSendDataMode.Unreliable)
+            }
+        catch
+        {
+            print("\(error)")
+        }
         
         self.updateChat(self.messageTextField.text!, fromPeer: self.peerID)
         
