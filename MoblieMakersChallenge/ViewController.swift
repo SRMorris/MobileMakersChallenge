@@ -67,16 +67,13 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         
          print(String(self.messageTextField.text))
         
-        let msg = self.messageTextField.text!.dataUsingEncoding(NSUTF8StringEncoding,
+        var msg = self.messageTextField.text!.dataUsingEncoding(NSUTF8StringEncoding,
             allowLossyConversion: false)
         
-<<<<<<< HEAD
        
         
-        let data = NSData(bytes: &msg, length: sizeof(Int))
-=======
+       var data = NSData(bytes: &msg, length: sizeof(Int))
 //        let data = NSData(bytes: &msg, length: sizeof(Int))
->>>>>>> acee5cf12df158a851a24f3db23d7362cb6b10ce
         
         do {
             try self.session.sendData(msg!, toPeers: self.session.connectedPeers, withMode: MCSessionSendDataMode.Unreliable)
