@@ -19,7 +19,12 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     var name: String = "Nugget McGee"
     var choice: String = "I'm a nuggest"
     let serviceType = "LCOC-Chat"
-    var messageArray = [Message]()
+    var messageArray = ["Sample Text", "Same", "I'm so hungry"]
+    
+/*let sample1 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "test", messageText: "lol")
+let sample2 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Sample Text 2", messageText: "I too am a sample text")
+let sample3 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Sample Text 3", messageText: "Way to be original, loser")
+*/
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textHere: UILabel!
@@ -49,7 +54,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         
         
         
-        loadSampleMessages()
+     
         
        
         
@@ -70,19 +75,16 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         var msg = self.messageTextField.text!.dataUsingEncoding(NSUTF8StringEncoding,
             allowLossyConversion: false)
         
-<<<<<<< HEAD
 
        
         
 
-        let data = NSData(bytes: &msg, length: sizeof(Int))
+        _ = NSData(bytes: &msg, length: sizeof(Int))
 
-=======
        
         
-       var data = NSData(bytes: &msg, length: sizeof(Int))
+       //var data = NSData(bytes: &msg, length: sizeof(Int))
 //        let data = NSData(bytes: &msg, length: sizeof(Int))
->>>>>>> 007b1f3ea5cfc7b274598aa8dd6a776eb3ba6745
         
         do {
             try self.session.sendData(msg!, toPeers: self.session.connectedPeers, withMode: MCSessionSendDataMode.Unreliable)
@@ -110,7 +112,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
         let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath)
-        cell.textLabel?.text = messageArray[indexPath.row].messageText
+        cell.textLabel?.text = messageArray[indexPath.row]
         return cell
     }
     
@@ -120,7 +122,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         messageArray.insert(message, atIndex: destinationIndexPath.row)
     }
     
-    // Loads sample messages for testing purposes
+    /* Loads sample messages for testing purposes
     func loadSampleMessages()
     {
         let sample1 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "test", messageText: "lol")
@@ -130,6 +132,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         messageArray.append(sample2)
         messageArray.append(sample3)
     }
+*/
     
     //various mulitpeer funcitons 
     @IBAction func showBrowser(sender: UIButton) {
