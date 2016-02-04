@@ -20,15 +20,9 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     var choice: String = "I'm a nuggest"
     let serviceType = "LCOC-Chat"
     var messageArray = ["Sample Text", "Same", "I'm so hungry"]
-    
-/*let sample1 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "test", messageText: "lol")
-let sample2 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Sample Text 2", messageText: "I too am a sample text")
-let sample3 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Sample Text 3", messageText: "Way to be original, loser")
-*/
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textHere: UILabel!
-    
     
     override func viewDidLoad() {
         
@@ -51,21 +45,15 @@ let sample3 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Sam
         
         // tell the assistant to start advertising our fabulous chat
         self.assistant.start()
-        
-        
-        
-     
-        
-       
-        
     }
+    // Get rid of the keyboard.
     @IBAction func closeKeyboardButtonTapped(sender: UIButton)
     {
         messageTextField.resignFirstResponder()
     }
     
     // Send message action
-    @IBAction func sendButtonTapped(sender: UIButton) throws
+    @IBAction func sendButtonTapped(sender: UIButton)
     {
         // Bundle up the text in the message field, and send it off to all
         // connected peers
@@ -74,14 +62,7 @@ let sample3 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Sam
         
         var msg = self.messageTextField.text!.dataUsingEncoding(NSUTF8StringEncoding,
             allowLossyConversion: false)
-        
-
-       
-        
-
         _ = NSData(bytes: &msg, length: sizeof(Int))
-
-       
         
        //var data = NSData(bytes: &msg, length: sizeof(Int))
 //        let data = NSData(bytes: &msg, length: sizeof(Int))
@@ -93,12 +74,8 @@ let sample3 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Sam
         {
             print("\(error)")
         }
-        
         self.updateChat(self.messageTextField.text!, fromPeer: self.peerID)
-        
         self.messageTextField.text = String(choice)
-        
-        
     }
     
     // Tells the table view how many cells to make
@@ -116,23 +93,6 @@ let sample3 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Sam
         return cell
     }
     
-    func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
-        let message = messageArray[sourceIndexPath.row]
-        messageArray.removeAtIndex(sourceIndexPath.row)
-        messageArray.insert(message, atIndex: destinationIndexPath.row)
-    }
-    
-    /* Loads sample messages for testing purposes
-    func loadSampleMessages()
-    {
-        let sample1 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "test", messageText: "lol")
-        let sample2 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Sample Text 2", messageText: "I too am a sample text")
-        let sample3 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Sample Text 3", messageText: "Way to be original, loser")
-        messageArray.append(sample1)
-        messageArray.append(sample2)
-        messageArray.append(sample3)
-    }
-*/
     
     //various mulitpeer funcitons 
     @IBAction func showBrowser(sender: UIButton) {
@@ -148,27 +108,22 @@ let sample3 = Message(style: UITableViewCellStyle.Default, reuseIdentifier: "Sam
             self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // Called when the browser view controller is cancelled
     func browserViewControllerWasCancelled(
         browserViewController: MCBrowserViewController)  {
-            // Called when the browser view controller is cancelled
-            
             self.dismissViewControllerAnimated(true, completion: nil)
     }
     
-    
+    // Appends some text to the chat view
     func updateChat(text : String, fromPeer peerID: MCPeerID) {
-        // Appends some text to the chat view
-        
         // If this peer ID is the local device's peer ID, then show the name
         // as "Me"
-        
         switch peerID {
         case self.peerID:
             name = "Me"
         default:
             name = peerID.displayName
         }
-        
     }
     
     func session(session: MCSession, didReceiveData data: NSData,
