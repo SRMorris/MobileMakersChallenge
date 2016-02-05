@@ -17,6 +17,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     var session : MCSession!
     var tester : Bool = false
     var peerID: MCPeerID!
+    var messageHolder : String = ""
     var name: String = "Nugget McGee"
     var choice: String = "I'm a nuggest"
     let serviceType = "LCOC-Chat"
@@ -139,19 +140,19 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
                 
                 let msg = NSString(data: data, encoding: NSUTF8StringEncoding)
                 print(String(msg!))
-                self.textHere.text = String(msg!)
-                
+                //self.textHere.text = String(msg!)
+                self.messageHolder = String(msg!)
                 self.updateChat(String(msg), fromPeer: peerID)
               
             }
-            _ = textHere.text
+            _ = messageHolder
             
             for thing in messageArray
             {
                 print(thing)
                 print(messageArray.count)
             }
-            messageArray.append(textHere.text!)
+            messageArray.append(messageHolder)
             tableView.reloadData()
     }
     
