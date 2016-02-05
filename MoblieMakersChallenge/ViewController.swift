@@ -15,6 +15,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     var browser : MCBrowserViewController!
     var assistant : MCAdvertiserAssistant!
     var session : MCSession!
+    var tester : Bool = false
     var peerID: MCPeerID!
     var name: String = "Nugget McGee"
     var choice: String = "I'm a nuggest"
@@ -33,6 +34,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         self.peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
         self.session = MCSession(peer: peerID)
         self.session.delegate = self
+        
         
         // create the browser viewcontroller with a unique service name
         self.browser = MCBrowserViewController(serviceType:serviceType,
@@ -60,9 +62,11 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         
          print(String(self.messageTextField.text))
         
-        var msg = self.messageTextField.text!.dataUsingEncoding(NSUTF8StringEncoding,
+        var msg = self.messageTextField.text?.dataUsingEncoding(NSUTF8StringEncoding,
             allowLossyConversion: false)
         _ = NSData(bytes: &msg, length: sizeof(Int))
+        
+        
         
        //var data = NSData(bytes: &msg, length: sizeof(Int))
 //        let data = NSData(bytes: &msg, length: sizeof(Int))
@@ -134,11 +138,21 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
             dispatch_async(dispatch_get_main_queue()) {
                 
                 let msg = NSString(data: data, encoding: NSUTF8StringEncoding)
-                print(String(msg))
-                self.textHere.text = String(msg)
+                print(String(msg!))
+                self.textHere.text = String(msg!)
                 
                 self.updateChat(String(msg), fromPeer: peerID)
+              
             }
+            _ = textHere.text
+            
+            for thing in messageArray
+            {
+                print(thing)
+                print(messageArray.count)
+            }
+            messageArray.append(textHere.text!)
+            tableView.reloadData()
     }
     
     // The following methods do nothing, but the MCSessionDelegate protocol
