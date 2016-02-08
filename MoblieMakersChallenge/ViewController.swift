@@ -62,7 +62,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         // connected peers
         
          print(String(self.messageTextField.text))
-        
+        messageArray.append(String(self.messageTextField.text!))
         var msg = self.messageTextField.text?.dataUsingEncoding(NSUTF8StringEncoding,
             allowLossyConversion: false)
         _ = NSData(bytes: &msg, length: sizeof(Int))
@@ -81,6 +81,8 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         }
         self.updateChat(self.messageTextField.text!, fromPeer: self.peerID)
         self.messageTextField.text = String(choice)
+        
+        tableView.reloadData()
     }
     
     // Tells the table view how many cells to make
@@ -140,7 +142,6 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
                 
                 let msg = NSString(data: data, encoding: NSUTF8StringEncoding)
                 print(String(msg!))
-                //self.textHere.text = String(msg!)
                 self.messageHolder = String(msg!)
                 self.updateChat(String(msg), fromPeer: peerID)
               
