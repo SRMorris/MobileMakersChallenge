@@ -9,7 +9,7 @@
 import UIKit
 import MultipeerConnectivity
 
-class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessionDelegate, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessionDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate{
     
     // Making variables
     var browser : MCBrowserViewController!
@@ -35,6 +35,8 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         self.peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
         self.session = MCSession(peer: peerID)
         self.session.delegate = self
+        self.messageTextField.delegate = self
+        
         
         
         // create the browser viewcontroller with a unique service name
@@ -42,6 +44,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
             session:self.session)
         
         self.browser.delegate = self;
+        
         
         self.assistant = MCAdvertiserAssistant(serviceType:serviceType,
             discoveryInfo:nil, session:self.session)
@@ -55,8 +58,17 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         messageTextField.resignFirstResponder()
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == messageTextField{
+            sendMessage()
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
+    }
+    
     // Send message action
-    @IBAction func sendButtonTapped(sender: UIButton)
+     func sendMessage()
     {
         // Bundle up the text in the message field, and send it off to all
         // connected peers
