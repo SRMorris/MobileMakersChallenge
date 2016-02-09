@@ -71,7 +71,7 @@
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="LNG-SendButtonInert" translatesAutoresizingMaskIntoConstraints="NO" id="GzU-4p-eQc">
-                                <rect key="frame" x="0.0" y="386" width="414" height="59"/>
+                                <rect key="frame" x="0.0" y="677" width="414" height="59"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="8bM-87-5RZ"/>
@@ -81,7 +81,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Click here" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n2H-yS-PxP">
-                                <rect key="frame" x="10" y="401" width="283" height="30"/>
+                                <rect key="frame" x="10" y="692" width="283" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration">

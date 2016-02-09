@@ -22,6 +22,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     var choice: String = "I'm a nuggest"
     let serviceType = "LCOC-Chat"
     var messageArray = ["Sample Text", "Same", "I'm so hungry"]
+    var activeText = UITextField()
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textHere: UILabel!
@@ -36,7 +37,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         self.session = MCSession(peer: peerID)
         self.session.delegate = self
         self.messageTextField.delegate = self
-        
+        textFieldDidBeginEditing(messageTextField)
         
         
         // create the browser viewcontroller with a unique service name
@@ -52,6 +53,28 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         // tell the assistant to start advertising our fabulous chat
         self.assistant.start()
     }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        self.activeText = textField
+        animateViewMoving(true, moveValue: 200)
+
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        animateViewMoving(false, moveValue: 200)
+    }
+    
+    func animateViewMoving (up:Bool, moveValue :CGFloat){
+        var movementDuration:NSTimeInterval = 0.3
+        var movement:CGFloat = ( up ? -moveValue : moveValue)
+        UIView.beginAnimations( "animateView", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(movementDuration )
+        self.view.frame = CGRectOffset(self.view.frame, 0,  movement)
+        UIView.commitAnimations()
+    }
+    
     // Get rid of the keyboard.
     @IBAction func closeKeyboardButtonTapped(sender: UIButton)
     {
