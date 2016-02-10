@@ -57,17 +57,17 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     func textFieldDidBeginEditing(textField: UITextField) {
         
         self.activeText = textField
-        animateViewMoving(true, moveValue: 200)
+        animateViewMoving(true, moveValue: 235)
 
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        animateViewMoving(false, moveValue: 200)
+        animateViewMoving(false, moveValue: 235)
     }
     
     func animateViewMoving (up:Bool, moveValue :CGFloat){
-        var movementDuration:NSTimeInterval = 0.3
-        var movement:CGFloat = ( up ? -moveValue : moveValue)
+        let movementDuration:NSTimeInterval = 0.3
+        let movement:CGFloat = ( up ? -moveValue : moveValue)
         UIView.beginAnimations( "animateView", context: nil)
         UIView.setAnimationBeginsFromCurrentState(true)
         UIView.setAnimationDuration(movementDuration )
