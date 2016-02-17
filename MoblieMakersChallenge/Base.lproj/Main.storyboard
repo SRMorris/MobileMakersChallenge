@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z2c-EA-rhx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z2c-EA-rhx">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,33 +17,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9J-EA-AZl">
-                                <rect key="frame" x="112" y="353" width="51" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Browse"/>
-                                <connections>
-                                    <action selector="showBrowser:" destination="Z2c-EA-rhx" eventType="touchUpInside" id="cPz-lg-gSe"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Iz-8n-sNq">
-                                <rect key="frame" x="267" y="353" width="108" height="30"/>
-                                <animations/>
-                                <state key="normal" title="Close Keyboard"/>
-                                <connections>
-                                    <action selector="closeKeyboardButtonTapped:" destination="Z2c-EA-rhx" eventType="touchUpInside" id="BUA-Ez-Yxe"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vw3-FV-HJs">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vw3-FV-HJs">
                                 <rect key="frame" x="26" y="291" width="379" height="21"/>
-                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2uN-gr-fle">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="257"/>
-                                <animations/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2uN-gr-fle">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="330"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="414" id="amq-dV-Z8E"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="414" id="ex8-dW-wfR"/>
+                                    <constraint firstAttribute="height" constant="257" id="kv7-yO-JjT"/>
+                                </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" textLabel="tUm-K3-EnE" style="IBUITableViewCellStyleDefault" id="amc-Yq-frD">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
@@ -54,15 +42,12 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tUm-K3-EnE">
                                                     <rect key="frame" x="15" y="0.0" width="384" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <animations/>
                                         </tableViewCellContentView>
-                                        <animations/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -72,7 +57,6 @@
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="LNG-SendButtonInert" translatesAutoresizingMaskIntoConstraints="NO" id="GzU-4p-eQc">
                                 <rect key="frame" x="0.0" y="677" width="414" height="59"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="8bM-87-5RZ"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="59" id="Yxc-er-stD"/>
@@ -82,7 +66,6 @@
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Click here" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n2H-yS-PxP">
                                 <rect key="frame" x="10" y="692" width="283" height="30"/>
-                                <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" playsSound="YES" keyboardKey="YES"/>
@@ -90,13 +73,46 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9J-EA-AZl">
+                                <rect key="frame" x="84" y="353" width="51" height="30"/>
+                                <state key="normal" title="Browse"/>
+                                <connections>
+                                    <action selector="showBrowser:" destination="Z2c-EA-rhx" eventType="touchUpInside" id="cPz-lg-gSe"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Iz-8n-sNq">
+                                <rect key="frame" x="239" y="353" width="108" height="30"/>
+                                <state key="normal" title="Close Keyboard"/>
+                                <connections>
+                                    <action selector="closeKeyboardButtonTapped:" destination="Z2c-EA-rhx" eventType="touchUpInside" id="BUA-Ez-Yxe"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="LNG-SendButtonActive" translatesAutoresizingMaskIntoConstraints="NO" id="Dus-Gz-K9L">
+                                <rect key="frame" x="0.0" y="434" width="414" height="59"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="59" id="Bmh-dS-Xik"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="414" id="Cy2-Mu-1Jy"/>
+                                    <constraint firstAttribute="width" constant="414" id="G4P-UO-OKS"/>
+                                    <constraint firstAttribute="height" constant="59" id="w8k-cS-pp1"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2uN-gr-fle" firstAttribute="leading" secondItem="lzI-9d-TwU" secondAttribute="leadingMargin" constant="-20" id="91r-vC-9yf"/>
+                            <constraint firstItem="7Iz-8n-sNq" firstAttribute="top" secondItem="vw3-FV-HJs" secondAttribute="bottom" constant="41" id="AzD-2d-jlV"/>
+                            <constraint firstItem="2uN-gr-fle" firstAttribute="top" secondItem="lzI-9d-TwU" secondAttribute="topMargin" id="Jd0-o5-CTu"/>
+                            <constraint firstItem="2uN-gr-fle" firstAttribute="leading" secondItem="lzI-9d-TwU" secondAttribute="leadingMargin" constant="-20" id="TPh-Hi-gqk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2uN-gr-fle" secondAttribute="trailing" constant="-20" id="UzX-F1-3N9"/>
+                            <constraint firstItem="2uN-gr-fle" firstAttribute="top" secondItem="lzI-9d-TwU" secondAttribute="topMargin" id="kDo-Hu-IWA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="2uN-gr-fle" secondAttribute="trailing" constant="-20" id="s1O-4X-PtQ"/>
+                            <constraint firstItem="x9J-EA-AZl" firstAttribute="top" secondItem="vw3-FV-HJs" secondAttribute="bottom" constant="41" id="shY-tu-2ZA"/>
+                        </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="backgroundTextImageActive" destination="Dus-Gz-K9L" id="mvr-Rx-gWu"/>
                         <outlet property="messageTextField" destination="n2H-yS-PxP" id="WbA-0F-ffN"/>
                         <outlet property="tableView" destination="2uN-gr-fle" id="hpF-kl-0JX"/>
                         <outlet property="textHere" destination="vw3-FV-HJs" id="IAw-7z-7uW"/>
@@ -113,6 +129,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LNG-SendButtonActive" width="414" height="59"/>
         <image name="LNG-SendButtonInert" width="414" height="59"/>
     </resources>
 </document>

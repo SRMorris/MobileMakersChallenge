@@ -26,6 +26,8 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     @IBOutlet weak var messageTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var textHere: UILabel!
+    @IBOutlet weak var backgroundTextImageInert: UIImageView!
+    @IBOutlet weak var backgroundTextImageActive: UIImageView!
     
     override func viewDidLoad() {
         
@@ -38,7 +40,8 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         self.session.delegate = self
         self.messageTextField.delegate = self
         textFieldDidBeginEditing(messageTextField)
-        
+        backgroundTextImageActive.alpha = 0
+
         
         // create the browser viewcontroller with a unique service name
         self.browser = MCBrowserViewController(serviceType:serviceType,
@@ -58,20 +61,23 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         
         self.activeText = textField
         animateViewMoving(true, moveValue: 235)
+        backgroundTextImageActive.alpha = 1
 
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
         animateViewMoving(false, moveValue: 235)
+        backgroundTextImageActive.alpha = 0
+
+        
     }
     
     func animateViewMoving (up:Bool, moveValue :CGFloat){
-        let movementDuration:NSTimeInterval = 0.3
+        let movementDuration:NSTimeInterval = 4
         let movement:CGFloat = ( up ? -moveValue : moveValue)
         UIView.beginAnimations( "animateView", context: nil)
         UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(movementDuration )
-        self.view.frame = CGRectOffset(self.view.frame, 0,  movement)
+        UIView.setAnimationDuration(movementDuration)
         UIView.commitAnimations()
     }
     
