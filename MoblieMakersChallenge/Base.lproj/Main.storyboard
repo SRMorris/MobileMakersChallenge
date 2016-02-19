@@ -6,6 +6,42 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
+        <scene sceneID="uf2-Y5-LEU">
+            <objects>
+                <viewController id="wjp-wU-NV6" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iWh-jj-ERD"/>
+                        <viewControllerLayoutGuide type="bottom" id="zfY-AL-S2c"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JHa-Sz-lRY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysQ-NS-8TJ">
+                                <rect key="frame" x="163" y="353" width="89" height="30"/>
+                                <state key="normal" title="Find a Friend"/>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" text="Just connect to a buddy and start messaging. Everything you send will be deleted when you close the app. Enjoy" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NIO-iJ-pou">
+                                <rect key="frame" x="87" y="105" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.59154917389999995" green="1" blue="0.80305459710000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYC-8n-X3H">
+                                <rect key="frame" x="300" y="669" width="126" height="59"/>
+                                <state key="normal" image="LNG-LogoLol"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.59154917389999995" green="1" blue="0.80305459710000004" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mG4-kq-mdt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="284" y="253"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="zY2-4E-e1H">
             <objects>
                 <viewController id="Z2c-EA-rhx" customClass="ViewController" customModule="MoblieMakersChallenge" customModuleProvider="target" sceneMemberID="viewController">
@@ -71,20 +107,13 @@
                                     <accessibilityTraits key="traits" button="YES" playsSound="YES" keyboardKey="YES"/>
                                 </accessibility>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="send"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x9J-EA-AZl">
                                 <rect key="frame" x="84" y="353" width="51" height="30"/>
                                 <state key="normal" title="Browse"/>
                                 <connections>
                                     <action selector="showBrowser:" destination="Z2c-EA-rhx" eventType="touchUpInside" id="cPz-lg-gSe"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Iz-8n-sNq">
-                                <rect key="frame" x="239" y="353" width="108" height="30"/>
-                                <state key="normal" title="Close Keyboard"/>
-                                <connections>
-                                    <action selector="closeKeyboardButtonTapped:" destination="Z2c-EA-rhx" eventType="touchUpInside" id="BUA-Ez-Yxe"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="LNG-SendButtonActive" translatesAutoresizingMaskIntoConstraints="NO" id="Dus-Gz-K9L">
@@ -97,10 +126,9 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.59154917386882255" green="1" blue="0.80305459711105398" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="2uN-gr-fle" firstAttribute="leading" secondItem="lzI-9d-TwU" secondAttribute="leadingMargin" constant="-20" id="91r-vC-9yf"/>
-                            <constraint firstItem="7Iz-8n-sNq" firstAttribute="top" secondItem="vw3-FV-HJs" secondAttribute="bottom" constant="41" id="AzD-2d-jlV"/>
                             <constraint firstItem="2uN-gr-fle" firstAttribute="top" secondItem="lzI-9d-TwU" secondAttribute="topMargin" id="Jd0-o5-CTu"/>
                             <constraint firstItem="2uN-gr-fle" firstAttribute="leading" secondItem="lzI-9d-TwU" secondAttribute="leadingMargin" constant="-20" id="TPh-Hi-gqk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="2uN-gr-fle" secondAttribute="trailing" constant="-20" id="UzX-F1-3N9"/>
@@ -115,13 +143,14 @@
                         <outlet property="backgroundTextImageActive" destination="Dus-Gz-K9L" id="mvr-Rx-gWu"/>
                         <outlet property="messageTextField" destination="n2H-yS-PxP" id="WbA-0F-ffN"/>
                         <outlet property="tableView" destination="2uN-gr-fle" id="hpF-kl-0JX"/>
+                        <outlet property="tapGesterTester" destination="09S-cm-oJ2" id="dze-wP-Orl"/>
                         <outlet property="textHere" destination="vw3-FV-HJs" id="IAw-7z-7uW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CTz-Yq-nZy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="09S-cm-oJ2">
                     <connections>
-                        <action selector="onScreenTapped:" destination="Z2c-EA-rhx" id="OmF-fU-RHv"/>
+                        <action selector="onScreenTappped:" destination="Z2c-EA-rhx" id="qB5-qv-t44"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -129,6 +158,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="LNG-LogoLol" width="72" height="59"/>
         <image name="LNG-SendButtonActive" width="414" height="59"/>
         <image name="LNG-SendButtonInert" width="414" height="59"/>
     </resources>

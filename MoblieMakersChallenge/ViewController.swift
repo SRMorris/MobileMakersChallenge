@@ -28,11 +28,13 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     @IBOutlet weak var textHere: UILabel!
     @IBOutlet weak var backgroundTextImageInert: UIImageView!
     @IBOutlet weak var backgroundTextImageActive: UIImageView!
+    @IBOutlet var tapGesterTester: UITapGestureRecognizer!
     
     override func viewDidLoad() {
         
         
         super.viewDidLoad()
+        self.view.addGestureRecognizer(tapGesterTester)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
@@ -223,6 +225,10 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         didChangeState state: MCSessionState)  {
             // Called when a connected peer changes state (for example, goes offline)
             
+    }
+    @IBAction func onScreenTappped(sender: UITapGestureRecognizer)
+    {
+        messageTextField.resignFirstResponder()
     }
 
 }
