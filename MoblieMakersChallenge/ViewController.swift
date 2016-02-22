@@ -62,26 +62,16 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     func textFieldDidBeginEditing(textField: UITextField) {
         
         self.activeText = textField
-        animateViewMoving(true, moveValue: 235)
         backgroundTextImageActive.alpha = 1
 
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        animateViewMoving(false, moveValue: 235)
         backgroundTextImageActive.alpha = 0
 
         
     }
-    
-    func animateViewMoving (up:Bool, moveValue :CGFloat){
-        let movementDuration:NSTimeInterval = 4
-        let movement:CGFloat = ( up ? -moveValue : moveValue)
-        UIView.beginAnimations( "animateView", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(movementDuration)
-        UIView.commitAnimations()
-    }
+  
     
     // Get rid of the keyboard.
     @IBAction func closeKeyboardButtonTapped(sender: UIButton)
