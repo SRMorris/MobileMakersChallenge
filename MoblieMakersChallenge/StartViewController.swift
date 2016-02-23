@@ -48,6 +48,13 @@ class StartViewController: UIViewController, MCBrowserViewControllerDelegate, MC
         self.assistant.start()
 
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let dvc = segue.destinationViewController as! ViewController
+        dvc.session = session
+        dvc.peerID = peerID
+        dvc.assistant = assistant
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
