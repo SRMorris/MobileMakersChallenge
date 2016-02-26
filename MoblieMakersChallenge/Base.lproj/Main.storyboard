@@ -70,16 +70,6 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="414" id="luF-qa-ggp"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Click here" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n2H-yS-PxP">
-                                <rect key="frame" x="10" y="692" width="283" height="30"/>
-                                <animations/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" button="YES" playsSound="YES" keyboardKey="YES"/>
-                                </accessibility>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="send"/>
-                            </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxc-68-Lp2">
                                 <rect key="frame" x="123" y="371" width="30" height="30"/>
                                 <animations/>
@@ -98,8 +88,8 @@
                                     <constraint firstAttribute="height" constant="59" id="w8k-cS-pp1"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Click here" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bM6-2r-zES">
-                                <rect key="frame" x="10" y="424" width="283" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Click here" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n2H-yS-PxP">
+                                <rect key="frame" x="10" y="692" width="283" height="30"/>
                                 <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration">
@@ -127,7 +117,6 @@
                         <outlet property="messageTextField" destination="n2H-yS-PxP" id="WbA-0F-ffN"/>
                         <outlet property="tableView" destination="2uN-gr-fle" id="hpF-kl-0JX"/>
                         <outlet property="tapGesterTester" destination="09S-cm-oJ2" id="dze-wP-Orl"/>
-                        <outlet property="text" destination="bM6-2r-zES" id="HLV-CK-fmH"/>
                         <outlet property="textHere" destination="vw3-FV-HJs" id="IAw-7z-7uW"/>
                     </connections>
                 </viewController>

@@ -44,7 +44,6 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         self.messageTextField.delegate = self
         textFieldDidBeginEditing(messageTextField)
         backgroundTextImageActive.alpha = 0
-        text.alpha = 0
 
         
         // create the browser viewcontroller with a unique service name
@@ -65,13 +64,12 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         
         self.activeText = textField
         backgroundTextImageActive.alpha = 1
-        text.alpha = 1
-
+        messageTextField.center = CGPointMake(10, 424)
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        backgroundTextImageActive.alpha = 0
-        text.alpha = 0
+//        backgroundTextImageActive.alpha = 0
+//        text.alpha = 0
 
 
         
