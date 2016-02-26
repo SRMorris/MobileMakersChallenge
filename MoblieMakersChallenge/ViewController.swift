@@ -29,6 +29,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
     @IBOutlet weak var backgroundTextImageInert: UIImageView!
     @IBOutlet weak var backgroundTextImageActive: UIImageView!
     @IBOutlet var tapGesterTester: UITapGestureRecognizer!
+    @IBOutlet weak var text: UITextField!
     
     override func viewDidLoad() {
         
@@ -43,6 +44,7 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         self.messageTextField.delegate = self
         textFieldDidBeginEditing(messageTextField)
         backgroundTextImageActive.alpha = 0
+        text.alpha = 0
 
         
         // create the browser viewcontroller with a unique service name
@@ -63,11 +65,14 @@ class ViewController: UIViewController, MCBrowserViewControllerDelegate, MCSessi
         
         self.activeText = textField
         backgroundTextImageActive.alpha = 1
+        text.alpha = 1
 
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
         backgroundTextImageActive.alpha = 0
+        text.alpha = 0
+
 
         
     }

@@ -1,62 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="wjp-wU-NV6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Z2c-EA-rhx">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Start View Controller-->
-        <scene sceneID="uf2-Y5-LEU">
-            <objects>
-                <viewController id="wjp-wU-NV6" customClass="StartViewController" customModule="MoblieMakersChallenge" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="iWh-jj-ERD"/>
-                        <viewControllerLayoutGuide type="bottom" id="zfY-AL-S2c"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="JHa-Sz-lRY">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ysQ-NS-8TJ">
-                                <rect key="frame" x="163" y="353" width="89" height="30"/>
-                                <state key="normal" title="Find a Friend"/>
-                                <connections>
-                                    <action selector="showBrowser:" destination="wjp-wU-NV6" eventType="touchUpInside" id="7bE-sZ-GUB"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" text="Just connect to a buddy and start messaging. Everything you send will be deleted when you close the app. Enjoy" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NIO-iJ-pou">
-                                <rect key="frame" x="87" y="105" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.59154917389999995" green="1" blue="0.80305459710000004" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YYC-8n-X3H">
-                                <rect key="frame" x="300" y="669" width="126" height="59"/>
-                                <state key="normal" image="LNG-LogoLol"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WA6-ph-eMT">
-                                <rect key="frame" x="240" y="125" width="30" height="30"/>
-                                <state key="normal" title="Talk"/>
-                                <connections>
-                                    <action selector="showBrowser:" destination="wjp-wU-NV6" eventType="touchUpInside" id="uMz-iG-Ytz"/>
-                                    <segue destination="Z2c-EA-rhx" kind="show" id="3VV-mx-u0j"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.59154917389999995" green="1" blue="0.80305459710000004" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <connections>
-                        <outlet property="findAFriendButton" destination="ysQ-NS-8TJ" id="HTw-vN-R22"/>
-                        <outlet property="stuffTextField" destination="NIO-iJ-pou" id="JUB-KY-wrU"/>
-                        <outlet property="talkButton" destination="WA6-ph-eMT" id="7xv-oU-CvE"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mG4-kq-mdt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="284" y="253"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="zY2-4E-e1H">
             <objects>
@@ -71,12 +19,14 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vw3-FV-HJs">
                                 <rect key="frame" x="26" y="291" width="379" height="21"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2uN-gr-fle">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="330"/>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="amq-dV-Z8E"/>
@@ -94,12 +44,15 @@
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="tUm-K3-EnE">
                                                     <rect key="frame" x="15" y="0.0" width="384" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <animations/>
                                         </tableViewCellContentView>
+                                        <animations/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -109,6 +62,7 @@
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="LNG-SendButtonInert" translatesAutoresizingMaskIntoConstraints="NO" id="GzU-4p-eQc">
                                 <rect key="frame" x="0.0" y="677" width="414" height="59"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="8bM-87-5RZ"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="59" id="Yxc-er-stD"/>
@@ -118,6 +72,7 @@
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Click here" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="n2H-yS-PxP">
                                 <rect key="frame" x="10" y="692" width="283" height="30"/>
+                                <animations/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" button="YES" playsSound="YES" keyboardKey="YES"/>
@@ -125,8 +80,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="send"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sxc-68-Lp2">
+                                <rect key="frame" x="123" y="371" width="30" height="30"/>
+                                <animations/>
+                                <state key="normal" title="find"/>
+                                <connections>
+                                    <action selector="showBrowser:" destination="Z2c-EA-rhx" eventType="touchUpInside" id="jNl-cz-p0m"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="LNG-SendButtonActive" translatesAutoresizingMaskIntoConstraints="NO" id="Dus-Gz-K9L">
-                                <rect key="frame" x="0.0" y="434" width="414" height="59"/>
+                                <rect key="frame" x="0.0" y="409" width="414" height="59"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="59" id="Bmh-dS-Xik"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="414" id="Cy2-Mu-1Jy"/>
@@ -134,14 +98,18 @@
                                     <constraint firstAttribute="height" constant="59" id="w8k-cS-pp1"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EEG-27-xtR">
-                                <rect key="frame" x="192" y="371" width="30" height="30"/>
-                                <state key="normal" title="Fin"/>
-                                <connections>
-                                    <segue destination="wjp-wU-NV6" kind="show" id="epr-X8-CGO"/>
-                                </connections>
-                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Click here" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bM6-2r-zES">
+                                <rect key="frame" x="10" y="424" width="283" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" button="YES" playsSound="YES" keyboardKey="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardAppearance="light" returnKeyType="send"/>
+                            </textField>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" red="0.59154917386882255" green="1" blue="0.80305459711105398" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="2uN-gr-fle" firstAttribute="leading" secondItem="lzI-9d-TwU" secondAttribute="leadingMargin" constant="-20" id="91r-vC-9yf"/>
@@ -159,6 +127,7 @@
                         <outlet property="messageTextField" destination="n2H-yS-PxP" id="WbA-0F-ffN"/>
                         <outlet property="tableView" destination="2uN-gr-fle" id="hpF-kl-0JX"/>
                         <outlet property="tapGesterTester" destination="09S-cm-oJ2" id="dze-wP-Orl"/>
+                        <outlet property="text" destination="bM6-2r-zES" id="HLV-CK-fmH"/>
                         <outlet property="textHere" destination="vw3-FV-HJs" id="IAw-7z-7uW"/>
                     </connections>
                 </viewController>
@@ -173,7 +142,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LNG-LogoLol" width="72" height="59"/>
         <image name="LNG-SendButtonActive" width="414" height="59"/>
         <image name="LNG-SendButtonInert" width="414" height="59"/>
     </resources>
